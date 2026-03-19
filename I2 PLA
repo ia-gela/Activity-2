@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First JavaScript</title>
+  </head>
+  <body>
+      <h1>JavaScript Sample</h1>
+      <h2>Sample 1: Alert Button</h2>
+     <div class="sample">
+       <button onclick="alert('Hello!')">Click me for alert</button>
+       </div>
+       
+       <h2>Sample 2: Function Declaration</h2>
+       <button onclick="sayHello()">Click me for Function</button>
+       <div class="output" id="output2"></div>
+       
+       <div class="sample">
+         <h2> Sample 3: Change Text Button</h2>
+         <p id="demo3" This text will change.</p>
+        <button onclick="changeText()">Click to Change Text</button>
+        </div>
+        
+      <div class="sample">
+         <h2> Sample 4: Counter Button (let and increment)</h2>
+         <p>You Clicked: <span id="countDisplay">0</span> times</p>
+         <button onclick="incrementCounter()">Click to count</button>
+         <div class="output" id="greeting"
+      </div>
+           
+      <div class="sample">
+         <h2> Sample 5: Input Button </h2>
+         <input type="text" id="nameInput" placeholder= "Enter your name">
+         <button onclick="greetUser()">Greet Me</button>
+         <div class="output" id="greeting"></div>
+      </div>
+      
+      <div class= "sample">
+        <h2> Sample 6: If statement button</h2>
+        <input type="number" id="ageInput" placeholder= "Enter your age">
+        <button onclick= "checkAge()">Check Age</button>
+        <div class="output" id="ageResult"></div>
+      </div>
+      
+      <div class= "sample">
+        <input type="number" id="ageInput" placeholder= "Enter your age">
+      </div>
+      <script>
+        function sayHello(name){
+          let message = "Hello from the function!";
+          alert(message);
+          document.getElementById("output2").innerHTML = message;
+          console.log("Sample 2: Button was clicked!");
+        }
+        
+        function changeText(){
+          document.getElementById("demo3").innerHTML = "Text change!";
+          console.log("Sample 3: Text changed successfully");
+        }
+        
+        let count = 0;
+        function incrementCounter(){
+          count++;
+          document.getElementById("countDisplay").innerHTML = count;
+          console.log("Sample 4: Count ="+count);
+        }
+        
+        function greetUser() {
+          let name = document.getElementById("nameInput").value;
+          if (name === "") {
+             name = "Guest";
+          }
+          let message = "Hello," + name + "!";
+          document.getElementById("greeting").innerHTML = message;
+          console.log("Sample 5: " + message);
+        }
+        
+        function checkAge(){
+         let age = document.getElementById("ageInput").value;
+         let result;
+         
+         if(age>= 18) {
+             result ="You are an adult! (Age:" + age + ")";
+             console.log("Sample 6: Adult - " + age);
+         } else{
+             reult = "You are a minor! (Age: " + age + ")";
+             console.log("Sample 6: Minor - " + age);
+         }
+         
+         document.getElementById("ageResult").innerHTML = result;
+        }
+      </script>
+      
+  </body>
+</html>
