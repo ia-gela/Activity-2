@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -123,11 +124,105 @@
               //Display error on package
               let errorHTML = "<strong> Please fix the following errors: </strong><br>"
               for (let i = 0; i < errors.length; i++) {
-                
+                  errorHTML += "" + errors[i] + "<br>";
               }
+              document.getElementById("errorMessages").innerHTML = errorHTML;
+              
+              // Show alert with errors
+              alert("Validation Errors; \n\n " + erroes.join(\n "));
+              
+              
+              //Log errors to console
+              console.log("Registration failed with errors");
+              console.log("errors");
+            } else{
+              let values = getFormValues();
+              
+              //Create Registration summary
+              let registrationSummary =
+              " REGISTRATION SUCCESSFUL!\n\n" +
+              "__________________________\n" +
+              "USER INFORMATION\n" +
+              "__________________________\n" +
+              "Full name: "+ values.fullName + "\n" +
+              "Email: " + values.email + "\n" +
+              "Age: " + values.age + "\n" +
+              "Gender" + values.gender + "\n" +
+              "Country" + values.country + "\n" +
+              "Terms Accepted" + (values.termsAccepted ? "Yes" :"No") + "\n" +
+              "__________________________\n\n" +
+              "Welcome, " + values.fullName + "!" ;
+              
+            //Show alert with registration info 
+            alert(registrationSummary);
+            
+            //log to console
+            console.log("Name:", values.fullName);
+            console.log("Email:", values.email);
+            console.log("Age:", values.age);
+            console.log("Gender:", values.gender);
+            console.log("Country:", values.country);
+            
+            //show success message on page
+            document.getElementById("errorMessages").innerHTML =
+                "<span style='color: green; font-weight: bold;'> Registration successful!
             }
-          }    
+          
+        function clearForm() {
+          //clear all inputs
+          document.getElementById("fullName").value ="";
+          document.getElementById("email").value ="";
+          document.getElementById("password").value ="";
+          document.getElementById("confirmPassword").value ="";
+          document.getElementById("age").value ="";
+          
+          //clear radip buttons
+          document.getElementById("male").checked = false;
+          document.getElementById("female").checked = false;
+          document.getElementById("other").checked = false;
+          
+          //reset dropdown
+          document.getElementById("country").value = "";
+          
+          //uncheck terms
+          document.getElementById("terms").checked = false;
+          
+          //clear error messages
+          document.getElementById("errorMessages").innerHTML= "";
+          document.getElementById("passwordMatchMessage").innerHTML= "";
+          
+          //show alert 
+          alert ("Form has been cleared!");
+          
+        }
+        
+        function checkPasswordMatch(){
+          let password = document.getElementById("password").value;
+          let confirmPassword = document.getElementById("confirmPassword").value;
+          let messageDiv = document.getElementById("passwordMatchMessage");
+          
+          if (confirmPassword === "") {
+              messageDiv.innerHTML = "";
+          }else if (password === confirmPassword) {
+              messageDiv.innerHTML = "Password match";
+              messageDiv.style.color ="green";
+          }else{
+              messageDiv.innerHTML ="Password do not match";
+              messageDiv.style.color ="red";
           }
+        }
+          
+        //add event listener for real-time password check
+        document.getElementById("password").addEventListener("keyup", checkPasswordMatch);
+        document.getElementById("confirmPassword").addEventListener("keyup", checkPasswordMatch);
+        
+            
+            
+                
+              
+            
+             
+          
         </script>
     </div>
     
